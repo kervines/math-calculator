@@ -1,13 +1,14 @@
 :root {
   /* colors */
-  /* --primary-color: #14163c;
+  --primary-color: #14163c;
   --second-color: #0c0e2a;
   --thrid-color: #f8544b;
   --text-color: #cecece;
 
   --hover-color-one: #0c0e2a;
-  --hover-color-two: #cc413a; */
-
+  --hover-color-two: #cc413a;
+}
+:root .dark-mode {
   /* dark color*/
   --primary-color: #111;
   --second-color: #222;
@@ -16,15 +17,16 @@
 
   --hover-color-one: #222;
   --hover-color-two: #777777;
-
+}
+:root .light-mode {
   /* light color */
-  /* --primary-color: #ddd;
+  --primary-color: #b0b0b0;
   --second-color: #ccc;
   --thrid-color: #222;
   --text-color: #333;
 
   --hover-color-one: #ccc;
-  --hover-color-two: #3c3b3b; */
+  --hover-color-two: #3c3b3b;
 }
 
 * {
@@ -33,11 +35,34 @@
   box-sizing: border-box;
   color: var(--text-color);
   font-family: 'Poppins', sans-serif;
+  transition: 0.3s;
 }
 
 button {
   border: none;
   background: none;
+}
+
+.containerColor {
+  position: absolute;
+  top: 85px;
+  right: 190px;
+  z-index: 1;
+}
+
+.containerColorFlex {
+  display: flex;
+  gap: 10px;
+}
+
+.dark,
+.light,
+.normal {
+  width: 24px;
+  height: 24px;
+  background-color: var(--text-color);
+  border-radius: 50%;
+  z-index: 1;
 }
 
 .container {
@@ -72,28 +97,6 @@ button {
 
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-}
-
-.containerResult::before {
-  content: '';
-  background-color: var(--text-color);
-  width: 30px;
-  height: 5px;
-  border-radius: 5px;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-
-.containerResult::after {
-  content: '';
-  background-color: var(--text-color);
-  width: 30px;
-  height: 5px;
-  border-radius: 5px;
-  position: absolute;
-  top: 25px;
-  right: 15px;
 }
 
 .result {
