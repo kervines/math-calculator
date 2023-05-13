@@ -5,6 +5,20 @@ const dark = document.querySelector('.dark');
 const light = document.querySelector('.light');
 const body = document.body;
 
+buttons.forEach((e) => {
+  e.addEventListener('click', () => {
+    if (result.innerHTML.length < 12) result.innerHTML += e.innerHTML;
+    if (e.innerHTML === 'AC') {
+      clearAll();
+    }
+  });
+});
+
+const clearAll = () => {
+  result.innerHTML = '';
+};
+
+//===================== Color mode =======================//
 normal.addEventListener('click', () => {
   if (
     body.classList.contains('dark-mode') ||
@@ -26,17 +40,3 @@ light.addEventListener('click', () => {
   }
   body.classList.add('light-mode');
 });
-
-buttons.forEach((e) => {
-  e.addEventListener('click', () => {
-    result.innerHTML += e.innerHTML;
-
-    if (e.innerHTML === 'AC') {
-      clearAll();
-    }
-  });
-});
-
-const clearAll = () => {
-  result.innerHTML = '';
-};
