@@ -1,3 +1,14 @@
+:root {
+  /* colors */
+  --primary-color: #14163c;
+  --second-color: #0c0e2a;
+  --thrid-color: #f8544b;
+  --text-color: #cecece;
+
+  --hover-color-one: #0c0e2a;
+  --hover-color-two: #cc413a;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,10 +22,6 @@ button {
   background: none;
 }
 
-body {
-  background-color: blueviolet;
-}
-
 .container {
   display: flex;
   justify-content: center;
@@ -23,13 +30,13 @@ body {
   width: 100vw;
   height: 100vh;
 
-  background: linear-gradient(#515587, #191d47);
+  background: linear-gradient(#8a91ff, #6d3c9b);
 }
 
 .containerCalculator {
   width: 400px;
   height: 600px;
-  background: #14163c;
+  background: var(--primary-color);
 
   display: flex;
   flex-direction: column;
@@ -43,7 +50,7 @@ body {
   padding: 10px 5px;
   position: relative;
 
-  background-color: #0c0e2a;
+  background-color: var(--second-color);
 
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -51,7 +58,7 @@ body {
 
 .containerResult::before {
   content: '';
-  background-color: #cecece;
+  background-color: var(--text-color);
   width: 30px;
   height: 5px;
   border-radius: 5px;
@@ -62,7 +69,7 @@ body {
 
 .containerResult::after {
   content: '';
-  background-color: #cecece;
+  background-color: var(--text-color);
   width: 30px;
   height: 5px;
   border-radius: 5px;
@@ -89,11 +96,13 @@ body {
   height: 100%;
   font-size: 1.5rem;
   border-radius: 10px;
+  transition: 0.2s;
 }
 
 .keyboardCalculator .btn:hover {
-  background-color: #0c0e2a;
-  box-shadow: 1px 2px #cecece, 2px 3px #0c0e2a;
+  background-color: var(--hover-color-one);
+  box-shadow: -1px -1px 2px var(--text-color);
+  transition: 0;
 }
 
 #zero {
@@ -101,11 +110,11 @@ body {
 }
 
 #equal {
-  background-color: #f8544b;
+  background-color: var(--thrid-color);
   grid-column: 4;
   grid-row: 4 / span 2;
 }
 
 #equal:hover {
-  background-color: #cc413a;
+  background-color: var(--hover-color-two);
 }
