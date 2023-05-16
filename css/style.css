@@ -5,8 +5,9 @@
   --thrid-color: #f8544b;
   --text-color: #cecece;
 
-  --hover-color-one: #0c0e2a;
-  --hover-color-two: #cc413a;
+  --hover-color-one: #0c0e2a3b;
+  --hover-color-two: #f04b43;
+  --hover-text-color: #7a7a7a;
 }
 :root .dark-mode {
   /* dark color*/
@@ -38,15 +39,15 @@
   transition: 0.3s;
 }
 
-button {
+input {
   border: none;
   background: none;
 }
 
 .containerColor {
   position: absolute;
-  top: 85px;
-  right: 190px;
+  top: 130px;
+  right: 600px;
   z-index: 1;
 }
 
@@ -58,11 +59,17 @@ button {
 .dark,
 .light,
 .normal {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   background-color: var(--text-color);
   border-radius: 50%;
   z-index: 1;
+}
+
+.dark:hover,
+.light:hover,
+.normal:hover {
+  background-color: var(--hover-text-color);
 }
 
 .container {
@@ -77,8 +84,8 @@ button {
 }
 
 .containerCalculator {
-  width: 400px;
-  height: 600px;
+  width: 350px;
+  height: 500px;
   background: var(--primary-color);
 
   display: flex;
@@ -88,8 +95,6 @@ button {
 
 .containerResult {
   height: 40%;
-  font-size: 3rem;
-  text-align: end;
   padding: 10px 5px;
   position: relative;
 
@@ -99,10 +104,17 @@ button {
   border-top-right-radius: 10px;
 }
 
-.result {
+#result {
+  font-size: 3rem;
+
+  width: 330px;
+  text-align: end;
+  background: none;
+  border-style: none;
+
   position: absolute;
+  bottom: -10px;
   right: 10px;
-  bottom: 10px;
 }
 
 .keyboardCalculator {
@@ -113,16 +125,18 @@ button {
   padding: 10px;
 }
 
-.keyboardCalculator .btn {
+.btn,
+#equal,
+#del {
   height: 100%;
   font-size: 1.5rem;
   border-radius: 10px;
   transition: 0.2s;
 }
 
-.keyboardCalculator .btn:hover {
-  background-color: var(--hover-color-one);
-  box-shadow: -1px -1px 2px var(--text-color);
+.btn:hover,
+#del:hover {
+  box-shadow: 0px 9px 20px rgba(0, 0, 0, 0.41);
   transition: 0;
 }
 
@@ -140,4 +154,5 @@ button {
 
 #equal:hover {
   background-color: var(--hover-color-two);
+  box-shadow: 0px 9px 20px rgba(0, 0, 0, 0.41);
 }

@@ -1,42 +1,44 @@
-const result = document.querySelector('.result');
 const buttons = document.querySelectorAll('.btn');
-const normal = document.querySelector('.normal');
-const dark = document.querySelector('.dark');
-const light = document.querySelector('.light');
-const body = document.body;
+const result = document.querySelector('#result');
+const equal = document.querySelector('#equal');
+const cln = document.querySelector('#cln');
+const del = document.querySelector('#del');
 
-buttons.forEach((e) => {
-  e.addEventListener('click', () => {
-    if (result.innerHTML.length < 12) result.innerHTML += e.innerHTML;
-    if (e.innerHTML === 'AC') {
-      clearAll();
+window.onload = () => {
+  result.value = '';
+};
+
+let equal_pressed = 0;
+
+buttons.forEach((btn_class) => {
+  btn_class.addEventListener('click', () => {
+    if (equal_pressed == 1) {
+      result.value = '';
+      equal_pressed = 0;
     }
+    result.value += btn_class.value;
   });
 });
 
-const clearAll = () => {
-  result.innerHTML = '';
-};
+equal.addEventListener('click', () => {
+  equal_pressed = 1;
+  let res_val = result.value;
+  try {
+    let solution = eval(res_val);
+    if (Number.isInteger(solution)) {
+      result.value = solution;
+    } else {
+      result.value = solution.toFixed(2);
+    }
+  } catch (err) {
+    alert('Invalid Inut');
+  }
+});
 
-//===================== Color mode =======================//
-normal.addEventListener('click', () => {
-  if (
-    body.classList.contains('dark-mode') ||
-    body.classList.contains('light-mode')
-  ) {
-    body.classList.remove('dark-mode');
-    body.classList.remove('light-mode');
-  }
+cln.addEventListener('click', () => {
+  result.value = '';
 });
-dark.addEventListener('click', () => {
-  if (body.classList.contains('light-mode')) {
-    body.classList.remove('light-mode');
-  }
-  body.classList.add('dark-mode');
-});
-light.addEventListener('click', () => {
-  if (body.classList.contains('dark-mode')) {
-    body.classList.remove('dark-mode');
-  }
-  body.classList.add('light-mode');
+
+del.addEventListener('click', () => {
+  result.value = result.value.substr(0, result.value.length - 1);
 });
